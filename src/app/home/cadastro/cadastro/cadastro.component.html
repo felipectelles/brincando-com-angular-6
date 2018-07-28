@@ -1,0 +1,310 @@
+<div class="row">
+  <div class="col-md-12">
+      <mat-card>    
+          <!-- Title of an Card -->    
+          <mat-card-title>    
+              Formulário de Cadastro
+          </mat-card-title>    
+          
+          <mat-card-content>
+            <form
+              (submit)="submit()"
+              [formGroup]="cadastroForm"
+              class="form">
+      
+              <div class="row mt-2">
+                  <div
+                    class="col-md-8">
+                    <mat-form-field
+                      class="ft-full-width">  
+                        <input
+                          formControlName="fullName"
+                          id="fullName"
+                          matInput
+                          placeholder="Nome completo">
+                          <mat-error
+                            *ngIf="form.fullName.errors && !form.valid">  
+                            <span
+                              *ngIf="form.fullName.errors.required">
+                              Campo obrigatório
+                            </span>
+                        </mat-error>
+                    </mat-form-field>
+                  </div>
+                <div
+                  class="col-md-4">
+                  <mat-form-field
+                    class="ft-full-width">  
+                      <input
+                        formControlName="birthDate"
+                        id="birthDate"
+                        matInput
+                        [max]="maxDate"
+                        [matDatepicker]="picker"
+                        placeholder="Data de nascimento">  
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker">
+                      </mat-datepicker-toggle>  
+                      <mat-datepicker
+                        touchUi="true"
+                        #picker
+                        [startAt]="startDate">
+                      </mat-datepicker>
+                      <mat-error
+                        *ngIf="!form.valid && form.birthDate.errors">  
+                          <span 
+                          *ngIf="!form.valid && form.birthDate.errors.required">Campo obrigatório</span>  
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+          
+            <div class="row mt-2">
+              <div
+                class="col-md-2">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="zipCode"
+                      id="zipCode"
+                      matInput
+                      mask='00000-000'
+                      placeholder="Cep">
+                      <mat-error
+                        *ngIf="form.zipCode.errors && !form.valid">  
+                        <span
+                          *ngIf="form.zipCode.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+              <div
+                class="col-md-5">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="streetName"
+                      id="streetName"
+                      matInput
+                      placeholder="Endereço">
+                      <mat-error
+                        *ngIf="form.streetName.errors && !form.valid">  
+                        <span
+                          *ngIf="form.streetName.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+            
+              <div
+                class="col-md-2">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="number"
+                      id="number"
+                      matInput
+                      mask="0999999"
+                      placeholder="Número">
+                      <mat-error
+                        *ngIf="form.number.errors && !form.valid">  
+                        <span
+                          *ngIf="form.number.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div
+                class="col-md-3">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="complement"
+                      id="complement"
+                      matInput
+                      placeholder="Complemento">
+                      <mat-error
+                        *ngIf="form.complement.errors && !form.valid">  
+                        <span
+                          *ngIf="form.complement.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          
+            <div class="row mt-2">      
+              <div
+                class="col-md-3">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="neighbourhood"
+                      id="neighbourhood"
+                      matInput
+                      placeholder="Bairro">
+                      <mat-error
+                        *ngIf="form.neighbourhood.errors && !form.valid">  
+                        <span
+                          *ngIf="form.neighbourhood.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+              <div
+                class="col-md-3">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="city"
+                      id="city"
+                      matInput
+                      placeholder="Cidade">
+                      <mat-error
+                        *ngIf="form.city.errors && !form.valid">  
+                        <span
+                          *ngIf="form.city.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+      
+              <div
+                class="col-md-3">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="state"
+                      id="state"
+                      matInput
+                      placeholder="Estado">
+                      <mat-error
+                        *ngIf="form.state.errors && !form.valid">  
+                        <span
+                          *ngIf="form.state.errors.required">
+                          Campo obrigatório
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+      
+              <div 
+                class="col-md-3">
+                <mat-form-field>  
+                    <mat-select
+                      formControlName="country"
+                      id="country"
+                      placeholder="País">  
+                      <mat-option 
+                        *ngFor="let pais of paises"
+                        [value]="pais.sigla">
+                        {{pais.nome}}
+                      </mat-option>  
+                    </mat-select>
+                    <mat-error *ngIf="!form.valid && form.country.errors">  
+                        <span *ngIf="!form.valid && form.country.errors.required">Campo obrigatório</span>  
+                    </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+      
+            <div class="row mt-2">
+            </div>
+      
+            <div class="row mt-2">
+              <div 
+                class="col-md-6">
+                <mat-form-field 
+                  class="ft-full-width">  
+                    <input
+                      formControlName="email"
+                      id="email"
+                      matInput
+                      placeholder="Email">  
+                      <mat-hint 
+                        *ngIf="form.email.touched">
+                        usuario@seudominio.com
+                      </mat-hint>
+                      <mat-error
+                        *ngIf="form.email.errors && !form.valid">  
+                          <span
+                            *ngIf="form.email.errors.required">
+                            Campo obrigatório
+                          </span>
+                          <span *ngIf="form.email.errors.email">
+                            E-mail inválido
+                          </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+            
+              <div 
+                class="col-md-3">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="password"
+                      id="password"
+                      matInput
+                      type="password"
+                      placeholder="Senha">
+                      <mat-error
+                        *ngIf="form.password.errors && !form.valid">  
+                        <span
+                          *ngIf="form.password.errors.required">
+                          Campo obrigatório
+                        </span>
+                        <span 
+                          *ngIf="form.password.errors.minlength || form.password.errors.maxlength">
+                          A senha precisa ter entre 6 e 10 caracteres
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+          
+              <div
+                class="col-md-3">
+                <mat-form-field
+                  class="ft-full-width">  
+                    <input
+                      formControlName="passwordConfirmation"
+                      id="passwordConfirmation"
+                      matInput
+                      type="password"
+                      placeholder="Confirme a senha">
+                      <mat-error
+                        *ngIf="form.passwordConfirmation.errors && !form.valid">  
+                        <span
+                          *ngIf="form.passwordConfirmation.errors.required">
+                          Campo obrigatório
+                        </span>
+                        <span
+                          *ngIf="form.passwordConfirmation.errors.matchpassword">
+                          Senhas não conferem
+                        </span>
+                      </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+      
+            <div class="mt-3">
+                <button
+                  mat-raised-button
+                  type="submit"
+                  color="accent">
+                  Cadastrar
+                </button>
+            </div>
+          </form>
+        </mat-card-content>    
+      </mat-card>   
+  </div>
+</div>
