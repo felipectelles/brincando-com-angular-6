@@ -1,0 +1,35 @@
+<ng-template
+    #graficoTemplate>
+        <ft-grafico>
+        </ft-grafico>
+</ng-template>
+
+<ft-lista 
+    *ngIf="tableMode; else graficoTemplate">
+</ft-lista>
+
+<div 
+    class="row mt-3 mb-3">    
+    <div 
+        class="col-md-4">
+        <button 
+            id="tableMode" 
+            mat-raised-button 
+            class="btn btn-block"
+            (click)="alternate()" 
+            color="accent">
+            {{tituloBotaoAlternar}}
+        </button>
+    </div>
+    <div 
+        class="col-md-2 offset-md-6">
+        <button
+            color="primary"
+            mat-raised-button
+            class="btn btn-block"
+            routerLink="/">
+            Voltar
+        </button>
+    </div>
+</div>
+  

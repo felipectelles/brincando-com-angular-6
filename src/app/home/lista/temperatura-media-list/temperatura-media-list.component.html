@@ -1,0 +1,85 @@
+<p><strong>Temperatura média mensal</strong></p>
+<div class="mat-elevation-z8">
+    <table class="table" mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+        <!-- Navegador Column -->
+        <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <td mat-cell *matCellDef="let row">{{row.cidade}}</td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="janeiro">
+        <th mat-header-cell *matHeaderCellDef>Janeiro</th>
+        <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[0].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fevereiro">
+            <th mat-header-cell *matHeaderCellDef>Fevereiro</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[1].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="marco">
+            <th mat-header-cell *matHeaderCellDef>Março</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[2].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="abril">
+            <th mat-header-cell *matHeaderCellDef>Abril</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[3].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="maio">
+            <th mat-header-cell *matHeaderCellDef>Maio</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[4].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="junho">
+            <th mat-header-cell *matHeaderCellDef>Junho</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[5].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="julho">
+            <th mat-header-cell *matHeaderCellDef>Julho</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[6].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="agosto">
+            <th mat-header-cell *matHeaderCellDef>Agosto</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[7].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="setembro">
+            <th mat-header-cell *matHeaderCellDef>Setembro</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[8].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="outubro">
+            <th mat-header-cell *matHeaderCellDef>Outubro</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[9].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="novembro">
+            <th mat-header-cell *matHeaderCellDef>Novembro</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[10].media}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="dezembro">
+            <th mat-header-cell *matHeaderCellDef>Dezembro</th>
+            <td mat-cell *matCellDef="let row">{{row.temperaturaMediaMensal[11].media}}</td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
